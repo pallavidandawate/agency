@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:jee="http://www.springframework.org/schema/jee"
+ 
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util" 
+       xmlns:mvc="http://www.springframework.org/schema/mvc" 
+       
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd  
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd  
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+  
+  
+  
+  
+  
+
+	<context:component-scan base-package="org.sbm.atm.controller" />
+	
+	<mvc:annotation-driven/>
+
+   <!-- the mvc resources tag does the magic -->
+   <mvc:resources mapping="/atm/**" location="/atm/" />
+	
+	
+	<bean id="atm" class="org.sbm.atm.model.ATM" />
+	<bean id="branch" class="org.sbm.atm.model.Branch" />
+	<bean id="bgl_3198" class="org.sbm.atm.model.BGL_3198" />
+	<bean id="region" class="org.sbm.atm.model.Region" />
+	<bean id="bgl_3198_transaction" class="org.sbm.atm.model.BGL_3198_TRANSACTION" />
+	<bean id="bgl_3197_3199" class="org.sbm.atm.model.BGL_3197_3199" />
+	<bean id="bgl_3197_3199_transaction" class="org.sbm.atm.model.BGL_3197_3199_TRANSACTION" />
+	<bean id="atm_transaction" class="org.sbm.atm.model.ATM_TRANSACTION" />
+	<bean id="filePathDataDaoImpl" class="org.sbm.atm.dao.FilePathDataDaoImpl" />
+	<bean id="branchDao" class="org.sbm.atm.dao.BRANCH_DAO" />
+	<bean id="atmDao" class="org.sbm.atm.dao.ATM_DAO" />
+	<bean id="atmTransactionDao" class="org.sbm.atm.dao.ATM_TRANSACTION_DAO" />
+	<bean id="bgl_3198_transaction_dao" class="org.sbm.atm.dao.BGL_3198_TRANSACTION_DAO" />
+	<bean id="bgl_3197_3198_Dao" class="org.sbm.atm.dao.BGL_3197_3199_DAO" />
+	<bean id="bgl_3197_3199_transaction_Dao" class="org.sbm.atm.dao.BGL_3197_3199_TRANSACTION_DAO" />
+	<bean id="dataSupportDao" class="org.sbm.atm.dao.DataSupportDao" />
+	<bean id="filePathDataServiceImpl" class="org.sbm.atm.services.FilePathDataServiceImpl" />
+	<bean id="filePath" class="org.sbm.atm.model.FilePath" />
+	<bean id="processFilesImpl" class="org.sbm.atm.services.ProcessFilesImpl" />
+	<bean id="fileProcessorDao" class="org.sbm.atm.dao.FileProcessorDao" />
+	<bean id="regionDao" class="org.sbm.atm.dao.RegionDao" />
+	<bean id="zoneDao" class="org.sbm.atm.dao.ZoneDao" />
+	<bean id="networkDao" class="org.sbm.atm.dao.NetworkDao" />
+	
+	
+	
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <property name="messageConverters">
+        <list>
+            <ref bean="jsonMessageConverter"/>
+        </list>
+    </property>
+</bean>
+
+<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+</bean>  -->
+	
+		
+
+	
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    		<property name="jndiName" value="java:comp/env/jdbc/mydb" />
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>org.sbm.atm.model.ATM</value>
+				<value>org.sbm.atm.model.ATM_TRANSACTION</value>
+				<value>org.sbm.atm.model.Branch</value>
+				<value>org.sbm.atm.model.BGL_3198</value>
+				<value>org.sbm.atm.model.BGL_3198_TRANSACTION</value>
+				<value>org.sbm.atm.model.BGL_3197_3199</value>
+				<value>org.sbm.atm.model.BGL_3197_3199_TRANSACTION</value>
+				<value>org.sbm.atm.model.FilePath</value>
+				<value>org.sbm.atm.model.Region</value>
+				<value>org.sbm.atm.model.Zone</value>
+				<value>org.sbm.atm.model.Network</value>
+				
+				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!--  DB : ORACLE -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<!--  DB : MYSQL -->
+			<!-- 	<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> -->
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="connection.pool_size">10</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+          <!-- setting maximum upload size -->
+        <property name="maxUploadSize" value="10000000" />
+    </bean>
+    
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="validation" />
+    </bean>
+    
+	
+
+</beans>  

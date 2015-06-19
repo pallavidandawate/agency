@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+table {
+  border: 1px solid black;   
+    width: 100%;
+}
+
+table,td,th{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th {
+  background: #a5a5b3; 
+  font-weight: bold;    
+    padding: 2px;
+}
+
+.even{
+    background-color: #99CCFF;
+}
+.odd{
+    background-color: #F5FAFF;
+}
+
+.difference{
+	background: #FFFF99; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.admin{
+	background: #e6e6ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.bgl{
+	background: #fff5ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.agency{
+	background: #e6e6ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}

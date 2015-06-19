@@ -1,0 +1,109 @@
+@CHARSET "ISO-8859-1";
+
+
+.container1{
+	font-size: large;
+	font-weight: bold;
+}
+table {
+  border: 1px solid black;   
+    width: 100%;
+}
+
+table,td,th{
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-weight: bold;
+}
+
+th {
+  background: #F0E0FF; 
+  font-weight: bold;    
+    padding: 2px;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.tableheading
+{
+	text-align: left;
+}
+
+h4 { 
+    display: block;
+    font-size: 1.3em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+
+.difference{
+	background: #FFFFE2; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.admin{
+	background: #e6e6ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.bgl{
+	background: #fff5ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.agency{
+	background: #e6e6ff; 
+  	font-weight: bold;    
+    padding: 2px;
+}
+
+.number{
+	text-align:center;
+}
+
+.amount{
+	text-align: right;
+}
+
+/* .span3 tbody {  
+    height: 100px !important;
+    overflow: scroll;
+    overflow-y: scroll;
+  height: 500px;
+  
+} */
+
+
+ 
+/*s
+.span3 tbody td, .span3 thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+ */
+ 
+ 
+/*  
+  .table-fixed thead {
+  width: 97%;
+} 
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+} 
+ .table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+} */

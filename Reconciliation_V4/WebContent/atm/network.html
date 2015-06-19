@@ -1,0 +1,49 @@
+<div class="container">
+<form class="form-inline">
+
+{{error}}
+<div class="form-group">
+  <label for="sel1">Network</label>
+<select  id="sel1" ng-model="network">
+  <option ng-repeat="networkName in networkNameList" value="{{networkName}}">{{networkName}}</option>
+</select>
+</div>
+&nbsp;&nbsp;
+<b>Date</b>
+<input type="date" id="exampleInput" name="input" ng-model="endDate" placeholder="yyyy-MM-dd" min="2012-01-01" max="2016-12-31" required />
+<input type="button" value="Submit" name="B1" ng-click="fetchData()"></p>
+</form>
+<div>
+
+
+</div>
+<div>
+<div class="container">
+ <button style="float: right;" class="btn btn-link" ng-click="exportToExcel('#table1')">
+        <span class="glyphicon glyphicon-share"></span> Export to Excel
+ </button>
+        <table id="table1" class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Network</th>
+              <th>Region</th>
+              <th>Branch Code</th>
+              <th>Branch</th>
+              <th>Agency Account Balance</th>
+              <!-- <th>3198 Account Balance</th> -->
+           </tr>
+         </thead>
+        
+             <tr ng-repeat="i in networkData">
+              <td>{{i.networkName}}</td>
+              <td>{{i.regionName}}</td>
+              <td class='number'>{{i.branchCode}}</td>
+              <td>{{i.branchName}}</td>
+              <td class='amount'>{{i.agencyAccountBalance}}</td>
+              <!-- <td>{{i.bgl3198AccountBalance}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+        </div>
+</div>
+</div>

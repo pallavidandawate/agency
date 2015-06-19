@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+table {
+  border: 1px solid #666;   
+    width: 50%;
+}
+th {
+  background: #f8f8f8; 
+  font-weight: bold;    
+    padding: 2px;
+}
+
+.even{
+    background-color: #99CCFF;
+}
+.odd{
+    background-color: #F5FAFF;
+}
+
+.difference{
+	 background: #E270AA; 
+  font-weight: bold;    
+    padding: 2px;
+	
+}
+
